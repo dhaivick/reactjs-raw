@@ -1,0 +1,43 @@
+<!-- Template for react app. -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>React App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Put your description here." />
+    <!-- Critical Path CSS. -->
+    <style>
+      body,
+      html {
+        min-height: 100%;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: Lato, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="index_bundle.js"></script>
+    <script>
+      var cb = function () {
+        var l = document.createElement('link');
+        l.rel = 'stylesheet';
+        l.href =
+          'https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css';
+        var h = document.getElementsByTagName('head')[0];
+        h.parentNode.insertBefore(l, h);
+      };
+      var raf =
+        requestAnimationFrame ||
+        mozRequestAnimationFrame ||
+        webkitRequestAnimationFrame ||
+        msRequestAnimationFrame;
+      if (raf) raf(cb);
+      else window.addEventListener('load', cb);
+    </script>
+  </body>
+</html>
